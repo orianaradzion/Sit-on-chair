@@ -264,36 +264,46 @@ ul.menu > li:hover > ul.submenu::before {
 /*section products*/
 
 .products {
-    height: 350px;
+    
     position: relative;
     margin:auto;
-  
-
-
 }
 
-.products .container {
+.box {
+    width: 1060px;
+    margin:auto;
+    justify-content: center;
     display: grid;
     grid-template-columns: repeat(3,1fr);
-    grid-gap: 0.7rem;
+    grid-gap: 1rem;
+    grid-template-areas: "prod1 prod2 prod3";
 }
 
-.art1, .art2, .art3 {
+
     
     
-}
+
 
 .art1 {
     background-image: url("../images/box1_img.jpg");
     background-repeat: no-repeat;
+    background-size: cover;
     margin-right: 18px;
+    grid-area: prod1;
+    height: 250px;
+    width: 100%;
     
 }
 
 .art2 {
     background-image: url("../images/box2_img.jpg");
     background-repeat: no-repeat;
+    background-size: cover;
     margin-right: 18px;
+    grid-area: prod2;
+    height: 250px;
+    width: 100%;
+    position: relative;
 }
 
 .art3 {
@@ -301,6 +311,9 @@ ul.menu > li:hover > ul.submenu::before {
     height: 250px;
     padding: 25px;
     box-sizing: border-box;
+    grid-area: prod3;
+    margin-bottom: 2rem;
+    position: relative;
 }
 
 .articleHeader {
@@ -346,13 +359,16 @@ p.artTitle {
 .plans {
     background-color: #f1f1f1;
     width: 100%;
-    height: 700px;
+    box-sizing: border-box;
+    
 }
 
 .plans-grid{
     display: grid;
     grid-template-columns: repeat(3,1fr);
     grid-gap: 0.7rem;
+    grid-template-areas: "plan1 plan2 plan3";
+    
 }
 
 .sectionTitle {
@@ -365,12 +381,12 @@ p.artTitle {
 }
 
 .productTab1, .productTab2, .productTab3 {
-    width: 335px;
+    width: 80%;
     height: 500px;
     box-sizing: border-box;
     margin-top: 74px;
     position: relative;
-    float: left;
+    
 }
 
 .productTab1, .productTab3 {
@@ -381,6 +397,13 @@ p.artTitle {
 .productTab2 {
     background-color: #23B59C;
     border: 1px solid #23B59C;
+    grid-area: plan2;
+}
+.productTab1{
+    grid-area: plan1;
+}
+.productTab3{
+    grid-area: plan3;
 }
 
 .productTab1, .productTab2 {
@@ -392,8 +415,8 @@ p.artTitle {
     height: 50px;
     border-radius: 100%;
     position: absolute;
-    left: 140px;
-    top: -35px;
+    left: 112px;
+    top: -30px;
 }
 
 .productTab1 .circle-big, .productTab3 .circle-big {
@@ -424,12 +447,13 @@ p.artTitle {
 }
 
 .planType {
-    width: 335px;
+   
     height: 100px;
     position: absolute;
     top: 30px;
 }
 .planType p{
+    margin-left: 2.5rem;
     text-align: center;
     text-transform: uppercase;
     color: #23B59C;
@@ -475,11 +499,13 @@ p.artTitle {
 }
 
 .items {
-    width: 335px;
+    
     height: 100px;
     position: absolute;
     top: 250px;
+    width: 100%;
 }
+
 
 .items li {
     list-style-type: none;
@@ -487,7 +513,7 @@ p.artTitle {
     text-align: center;
     font-size: 26px;
     height: 40px;
-    width: 333px;
+    margin: auto;
     padding-top: 3px;
 }
 
@@ -526,10 +552,11 @@ p.artTitle {
     padding:30px 0;
 }
 
-.application .container {
+.application-grid {
     display: grid;
     grid-template-columns: repeat(3,1fr);
     grid-gap: 0.7rem;
+    grid-template-areas: "form image summary";
 }
 .application h3 {
     color: #575757;
@@ -764,7 +791,16 @@ p.artTitle {
 }
 
 /*section contact*/
-
+.choice_part {
+    grid-area: form;
+}
+.image_part{
+    grid-area: image;
+}
+.summary_part{
+    grid-area: summary;
+    
+}
 .contact {
     height: 480px;
     position: relative;
@@ -775,11 +811,15 @@ p.artTitle {
 
 .contactForm {
     margin-top: 45px;
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    grid-template-areas: "contact img";
+    grid-gap:1rem;
 }
 
 #secContact {
     padding-top: 33px;
-    margin-left: 10rem;
+    
 }
 
 form input, form textarea {
@@ -793,26 +833,27 @@ form input, form textarea {
 }
 
 .formLeft {
+    grid-area: contact;
     
-    margin:auto;
     width: 640px;
 }
 
 .formRight {
-    float: right;
+
     width: 380px;
     /*border: 1px solid red;*/
+    grid-area: img;
+    margin-left: 10rem;
 }
 
 .formImage {
     background-image: url("../images/red_chair.png");
     background-repeat: no-repeat;
     margin-left: 60px;
-    margin-bottom: 20px;
+    
     width: 380px;
-    height: 200px;
-    position: center;
-    float: left;
+    /* height: 200px; */
+    margin-bottom: 2rem;
 }
 
 .contactButton {
@@ -824,9 +865,7 @@ form input, form textarea {
     font-size: 36px;
     border-radius: 10px;
     text-align: center;
-    position: absolute;
-    bottom: 0;
-    float: left;
+    margin-top: 2rem;
     padding-top: 15px;
 }
 
@@ -858,22 +897,27 @@ footer {
 
 .footRow {
     height: 50px;
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    line-height: 1.5rem;
+    align-items: center;
 }
 
-.copyright {
+/* .copyright {
     width: 680px;
-    float: left;
+    
     padding-top: 10px;
 }
 
 .socialMedia {
     width: 250px;
-    float: left;
-}
+    
+} */
 
 .btmLogo {
     text-transform: uppercase;
-    float: right;
+    
     padding-top: 10px;
 }
 
@@ -885,10 +929,9 @@ footer {
 
 
 
-@media screen and (max-width: 768px) {
-}
 
-  @media screen and (min-width: 650px) and (max-width: 899px) {
+
+  @media screen and (min-width: 650px) and (max-width: 950px) {
     .slider .container{
         flex-direction: column;
         
@@ -921,19 +964,82 @@ footer {
         top:10%;
         left: 85%;
     }
+    .box {
+        display: grid;
+        grid-template-columns: repeat (2,1fr);
+        grid-template-areas: "prod1 prod2"
+                              "prod3 ." ;
+       grid-row-gap:1rem;                     
+    }
+    .art1,
+    .art2{
+        background-size: contain;
+    }
+    .plans-grid{
+        display: grid;
+        grid-template-columns:1fr;
+        grid-template-areas: 'plan1'
+                              'plan2'
+                               'plan3';
+        grid-gap:2rem;
+
+
   }
- 
-  @media screen and (min-width: 900px) and (max-width: 1170px) {
-  .contact,
-  .application .container,
-  .plans-grid,
-  .products .container {
-    /* display: grid;
-    grid-template-columns: repeat(3,1fr);
-    grid-gap: 0.7rem;
-  } */
-  display: flex;
+  .circle-big{
+      left: 400px;
+  }
+  .application-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    
+    grid-template-areas: "form summary";
+    box-sizing: border-box;
 }
+.image_part {
+    display: none;
+}
+.contactForm{
+    grid-template-columns: 1fr;
+    grid-template-areas: "contact";
+}
+.formRight{
+    display: none;
+}
+.container #seeContact {
+    margin-left:0rem;
+}
+
+}
+ 
+  @media screen and (min-width: 950px) and (max-width: 1170px) {
+  .box {
+      display: grid;
+      grid-template-columns: repeat(2,1fr);
+      grid-template-areas: "prod1 prod2"
+                            "prod3 ." ;
+     grid-row-gap:1rem;                     
+  }
+  .circle-big{
+      left: 176px;
+  }
+  .plans-grid{
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    grid-template-areas: "plan1 plan2"
+               "plan3 .";
+    
+}
+.application-grid {
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    grid-gap: 0.7rem;
+    grid-template-areas: "form image"
+                         "summary summary";
+}
+.formRight{
+    margin-left: 0;
+}
+
   }
  
 
@@ -982,7 +1088,54 @@ footer {
             line-height: 0.8rem;
             padding-top: 10px;
         }
+        div.box {
+            display: grid;
+            grid-template-columns: 1fr;
+            grid-template-areas: "prod1"
+                                  "prod2"
+                                  "prod3 " ;
+           grid-row-gap:1rem;                     
+        }
+        .art1,
+        .art2{
+            background-size: 100vw;
+            
+        }
+        .art3 {
+            width: 100vw;
+        }
+        .application-grid {
+            display: grid;
+            grid-template-columns:1fr;
+            grid-gap: 0.7rem;
+            grid-template-areas: "form"
+                                 "summary";
+        }
+        .image_part {
+            display: none;
+        
     }
- 
- 
+    .plans-grid{
+        grid-template-columns: 1fr;
+        grid-template-areas: 'plan1'
+                              'plan2'
+                             'plan3';
+    }
+    .contactForm{
+        grid-template-columns: 1fr;
+        grid-template-areas: 'contact'
+                              ;
+    }
+
+    .formRight{
+        display: none;
+    }
+    .productTab1, .productTab2, .productTab3 {
+        width: 100vw;
+
+}
+ .circle-big{
+     left: 45%;
+ }
+}
  
